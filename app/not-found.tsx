@@ -1,6 +1,7 @@
 import { Text, View } from 'react-native';
 
-const Home = () => {
+export default function NotFoundScreen() {
+	console.log('LOG TO DEVTOOL');
 	return (
 		<View
 			style={{
@@ -9,9 +10,7 @@ const Home = () => {
 				alignItems: 'center',
 			}}
 		>
-			<Text>Home</Text>
+			<Text>Edit app/index.tsx to edit this screen.</Text>
 		</View>
 	);
-};
-
-export default Home;
+}
