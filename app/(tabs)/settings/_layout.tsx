@@ -4,7 +4,11 @@ import { Stack } from 'expo-router';
 
 const SettingLayout = () => {
 	return (
-		<Stack>
+		<Stack
+			screenOptions={{
+				headerShown: false,
+			}}
+		>
 			<Stack.Screen
 				name="setting-options"
 				options={{
