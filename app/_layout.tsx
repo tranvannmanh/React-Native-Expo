@@ -1,7 +1,21 @@
-import { DarkTheme, ThemeProvider } from '@react-navigation/native';
 import { Stack } from 'expo-router';
+import * as NavigationBar from 'expo-navigation-bar';
+
+// Import your global CSS file
+import '../global.css';
+import { useEffect } from 'react';
 
 export default function Layout() {
+	useEffect(() => {
+		const setBackgroundNavigationBar = async (color: string) => {
+			try {
+				await NavigationBar.setBackgroundColorAsync(color);
+			} catch (error) {
+				console.log('ERRROR://// ', error);
+			}
+		};
+		setBackgroundNavigationBar('transparent');
+	}, []);
 	return (
 		<Stack>
 			<Stack.Screen
@@ -10,7 +24,7 @@ export default function Layout() {
 					headerShown: false,
 				}}
 			/>
-			{/* <Stack.Screen name="not-found" /> */}
+			<Stack.Screen name="not-found" />
 		</Stack>
 	);
 }

@@ -1,3 +1,4 @@
+import { StatusBar } from 'expo-status-bar';
 import { Text, View } from 'react-native';
 
 const Home = () => {
@@ -9,6 +10,7 @@ const Home = () => {
 				alignItems: 'center',
 			}}
 		>
+			<StatusBar translucent />
 			<Text>Home</Text>
 		</View>
 	);
