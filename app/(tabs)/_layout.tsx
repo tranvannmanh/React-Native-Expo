@@ -9,12 +9,19 @@ const TabsLayout = () => {
 			screenOptions={{
 				headerPressColor: 'transparent',
 				headerShown: false,
+				tabBarStyle: {
+					paddingTop: 10,
+					height: 70,
+				},
 			}}
 		>
 			<Tabs.Screen
 				name="index"
 				options={{
 					title: 'Home Screen',
+					tabBarLabelStyle: {
+						fontSize: 14,
+					},
 					tabBarButton: (props) => (
 						<TouchableOpacity
 							onPress={props.onPress}
@@ -25,7 +32,7 @@ const TabsLayout = () => {
 						</TouchableOpacity>
 					),
 					tabBarIcon: ({ color }) => (
-						<MaterialIcons name="home" color={color} />
+						<MaterialIcons name="home" size={24} color={color} />
 					),
 				}}
 			/>
@@ -34,8 +41,11 @@ const TabsLayout = () => {
 				options={{
 					headerShown: false,
 					tabBarIcon: ({ color }) => (
-						<MaterialIcons name="settings" color={color} />
+						<MaterialIcons name="settings" size={24} color={color} />
 					),
+					tabBarLabelStyle: {
+						fontSize: 14,
+					},
 					tabBarButton: (props) => (
 						<TouchableOpacity
 							onPress={props.onPress}
@@ -52,8 +62,11 @@ const TabsLayout = () => {
 				options={{
 					headerShown: false,
 					tabBarIcon: ({ color }) => (
-						<MaterialIcons name="category" color={color} />
+						<MaterialIcons name="category" size={24} color={color} />
 					),
+					tabBarLabelStyle: {
+						fontSize: 14,
+					},
 					tabBarButton: (props) => (
 						<TouchableOpacity
 							onPress={props.onPress}
