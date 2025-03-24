@@ -8,6 +8,8 @@ import { Color } from '@/constants/color';
 import ThemeText from '@/components/theme-text';
 import { ThemeContext } from '@/provider/theme-provider';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { StatusBar } from 'expo-status-bar';
+import { CStatusBar } from '@/components/status-bar';
 
 interface ISettingRow {
 	icon: React.ReactNode;
@@ -18,23 +20,23 @@ interface ISettingRow {
 }
 const SettingRow = React.memo(
 	({ icon, title, state, onPress, colorTheme }: ISettingRow) => {
-		const settingTitle = () => {
+		const settingTitle = React.useCallback(() => {
 			if (typeof title === 'string') {
 				return <ThemeText className="text-[16px] font-bold">{title}</ThemeText>;
 			}
 			return title;
-		};
+		}, [title]);
 
-		const settingState = () => {
-			if (typeof title === 'string') {
+		const settingState = React.useCallback(() => {
+			if (typeof state === 'string') {
 				return (
 					<ThemeText isSendary className="text-[16px]">
 						{state}
 					</ThemeText>
 				);
 			}
-			return title;
-		};
+			return state;
+		}, [state]);
 
 		return (
 			<TouchableOpacity
@@ -59,6 +61,7 @@ const Settings = () => {
 	const { colorTheme, isDark } = React.useContext(ThemeContext);
 	return (
 		<View className="flex-1">
+			<CStatusBar />
 			<Animated.ScrollView>
 				<View className="h-[32px]" />
 				<SettingRow

@@ -38,16 +38,16 @@ export const FloatingActionButton = ({
 	const animatedStyles = useAnimatedStyle(() => {
 		const moveValue = isExpanded.value ? OFFSET * index : 1;
 		const translateValue = withSpring(-moveValue, SPRING_CONFIG);
-		// const delay = index * 100;
+		const delay = index * 100;
 
-		// const scaleValue = isExpanded.value ? 1 : 0;
+		const scaleValue = isExpanded.value ? 1 : 0;
 
 		return {
 			transform: [
 				{ translateY: translateValue },
-				// {
-				// 	scale: withDelay(delay, withTiming(scaleValue)),
-				// },
+				{
+					scale: withDelay(delay, withTiming(scaleValue)),
+				},
 			],
 		};
 	});

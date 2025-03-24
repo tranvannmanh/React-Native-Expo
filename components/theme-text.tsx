@@ -1,4 +1,4 @@
-import { View, Text, TextProps } from 'react-native';
+import { View, Text, TextProps, TextStyle } from 'react-native';
 import React, { useContext } from 'react';
 import { ThemeContext } from '@/provider/theme-provider';
 
@@ -8,12 +8,16 @@ const ThemeText = (
 	}
 ) => {
 	const { colorTheme } = useContext(ThemeContext);
+	const { style, ...rest } = props;
 	return (
 		<Text
-			style={{
-				color: !props.isSendary ? colorTheme.onSurface : colorTheme.outline,
-			}}
-			{...props}
+			style={[
+				{
+					color: !props.isSendary ? colorTheme.onSurface : colorTheme.outline,
+				},
+				style,
+			]}
+			{...rest}
 		>
 			{props.children}
 		</Text>
